@@ -1,6 +1,9 @@
 const myLibrary = [];
 const cardContainer = document.querySelector(".container");
-const button = document.querySelector("#addBook");
+const btnAddBook = document.querySelector("#addBook");
+const dialog = document.querySelector("dialog");
+const btnAdd = document.querySelector("#btnAdd");
+const btnCancel = document.querySelector("#btnCancel");
 
 function Book(title, author, pages, hasRead) {
   if (!new.target) {
@@ -74,15 +77,26 @@ function bookDisplay() {
   });
 }
 
-
-button.addEventListener("click", ()=>{
-
+btnAddBook.addEventListener("click", () => {
+  dialog.showModal();
 });
 
-console.log(theHobbit.info());
-console.log(theHobbit.ID);
+btnAdd.addEventListener("click", (e) => {
+  //When click is selected, add form inputs and call addBookToLibrary function
+  let getTitle = document.
+  e.preventDefault();
+});
 
-console.log(myLibrary[0].ID);
+//cancel button closes dialog window
+btnCancel.addEventListener("click", (e) => {
+  e.preventDefault();
+  dialog.close();
+});
+
+// console.log(theHobbit.info());
+// console.log(theHobbit.ID);
+
+// console.log(myLibrary[0].ID);
 
 //trying to select the first one in library using the ID
 // let cardOne = document.querySelector(`[data-type = ${myLibrary[0].ID}`);
