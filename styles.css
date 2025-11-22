@@ -74,17 +74,20 @@ h6 {
   isolation: isolate;
 }
 
-h1,
+body {
+  padding: 8px;
+}
+/* h1,
 button {
   margin-left: 32px;
-}
+} */
 
 .container {
   display: flex;
   flex-wrap: wrap;
   max-width: 840px;
   gap: 16px;
-  margin: 32px;
+  /* margin: 32px; */
 }
 .card {
   flex-grow: 1;
@@ -93,4 +96,26 @@ button {
   padding: 8px;
   min-width: 150px;
   max-width: 600px;
+}
+
+.red {
+  background-color: red;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.inputField {
+  display: flex;
+  flex-direction: column;
+}
+
+.btnGroup {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-self: flex-end;
 }

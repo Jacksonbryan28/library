@@ -8,9 +8,9 @@
     <script defer src="javascript.js"></script>
   </head>
   <body>
-      <h1 class="test">Red bg</h1>
-      <div class="container">
-        <div class="card">
+    <h1 class="test">Red bg</h1>
+    <div class="container">
+      <!-- <div class="card">
           <h3>title</h3>
           <p class="author">author</p>
           <p class="pages">page #</p>
@@ -21,8 +21,43 @@
           <p class="author">author</p>
           <p class="pages">page #</p>
           <p class="read">yes</p>
+        </div> -->
+    </div>
+    <button id="addBook">Add book</button>
+    <dialog open>
+      <form>
+        <!-- <p>* indicates required field</p> -->
+        <div class="inputField">
+          <label id="titleInput">* Title:</label>
+          <input type="text" name="Title" id="titleInput" required />
         </div>
-      </div>
-      <button id="addBook">Add book</button>
+
+        <div class="inputField">
+          <label id="authorInput">* Author:</label>
+          <input type="text" name="Author" id="authorInput" required />
+        </div>
+
+        <div class="inputField">
+          <label id="pagesInput">* Pages:</label>
+          <input type="number" name="pages" id="pagesInput" required />
+        </div>
+
+        <div class="inputField">
+          <fieldset>
+            <legend>* Read?</legend>
+            <input required type="radio" name="readStatus" id="readInput" />
+            <label for="readInput" id="readInput">Unread</label>
+
+            <input type="radio" name="readStatus" id="unreadInput" />
+            <label for="unreadInput" id="unreadInput">Read</label>
+          </fieldset>
+        </div>
+
+        <div class="btnGroup">
+          <button id="btnCancel">Cancel</button>
+          <button id="btnAdd">Add</button>
+        </div>
+      </form>
+    </dialog>
   </body>
 </html>
