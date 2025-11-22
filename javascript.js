@@ -28,8 +28,6 @@ function addBookToLibrary(title, author, pages, hasRead) {
   myLibrary.push(newBook);
 }
 
-Object.setPrototypeOf(addBookToLibrary, Book);
-
 const theHobbit = new Book(
   "The Hobbit",
   "J.R.R Tolkein",
@@ -77,6 +75,9 @@ function bookDisplay() {
 
 console.log(theHobbit.info());
 console.log(theHobbit.ID);
+
+console.log(myLibrary[0].ID);
+console.log(document.querySelector(`[data-type = ${myLibrary[0].ID}`));
 
 console.log("------------------------");
 console.log(myLibrary[0]);

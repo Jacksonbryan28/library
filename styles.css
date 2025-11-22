@@ -74,6 +74,11 @@ h6 {
   isolation: isolate;
 }
 
+h1,
+button {
+  margin-left: 32px;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
