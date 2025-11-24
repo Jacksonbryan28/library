@@ -4,7 +4,6 @@ const btnAddBook = document.querySelector("#addBook");
 const dialog = document.querySelector("dialog");
 const btnAdd = document.querySelector("#btnAdd");
 const btnCancel = document.querySelector("#btnCancel");
-// const cardContainer = document.getElementById("cardContainer");
 
 function Book(title, author, pages, hasRead) {
   if (!new.target) {
@@ -29,24 +28,20 @@ function Book(title, author, pages, hasRead) {
 }
 
 function addBookToLibrary(title, author, pages, hasRead) {
+  //Creates new book
   const newBook = new Book(title, author, pages, hasRead);
-
+  //Adds new book to library
   myLibrary.push(newBook);
-
+  //calls funciton to display all books in library
   bookDisplay(newBook);
 }
 
-// addBookToLibrary(
-//   "Game of thrones",
-//   "George R.R. Martin",
-//   "784",
-//   "not read yet"
-// );
-
 function bookDisplay(book) {
+  //cycles through and removes add DOM elements in container
   while (cardContainer.firstChild) {
     cardContainer.removeChild(cardContainer.lastChild);
   }
+  //Adds DOM elements for each book in array
   myLibrary.forEach((book) => {
     //   //Adds book elements to dom and adds appropriate styling
     const newCard = document.createElement("div");
@@ -73,30 +68,6 @@ function bookDisplay(book) {
     newCard.appendChild(pageNum);
     newCard.appendChild(read);
   });
-
-  // const newCard = document.createElement("div");
-  // newCard.classList.add("card");
-  // newCard.dataset.id = book.ID;
-
-  // const title = document.createElement("h3");
-  // title.classList.add("title");
-  // title.textContent = book.title;
-  // const author = document.createElement("p");
-  // author.classList.add("author");
-  // author.textContent = book.author;
-  // const pageNum = document.createElement("p");
-  // pageNum.classList.add("pages");
-  // pageNum.textContent = book.pages;
-  // const read = document.createElement("p");
-  // read.classList.add("read");
-  // read.textContent = book.hasRead;
-
-  // //appends it to the correct location
-  // cardContainer.appendChild(newCard);
-  // newCard.appendChild(title);
-  // newCard.appendChild(author);
-  // newCard.appendChild(pageNum);
-  // newCard.appendChild(read);
 }
 
 btnAddBook.addEventListener("click", () => {
@@ -129,10 +100,9 @@ btnAdd.addEventListener("click", (e) => {
     pagesInput.value,
     readStatusContent.value
   );
-  // bookDisplay();
-  // bookDisplay();
+
   //Prevents form submisson
-  // e.preventDefault();
+  e.preventDefault();
 });
 
 //cancel button closes dialog window
@@ -159,3 +129,11 @@ btnCancel.addEventListener("click", (e) => {
 // console.log(myLibrary[0]);
 // console.log(myLibrary[0].info());
 // bookDisplay();
+
+//Test book
+// addBookToLibrary(
+//   "Game of thrones",
+//   "George R.R. Martin",
+//   "784",
+//   "not read yet"
+// );
