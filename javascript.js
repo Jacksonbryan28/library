@@ -4,6 +4,7 @@ const btnAddBook = document.querySelector("#addBook");
 const dialog = document.querySelector("dialog");
 const btnAdd = document.querySelector("#btnAdd");
 const btnCancel = document.querySelector("#btnCancel");
+// const cardContainer = document.getElementById("cardContainer");
 
 function Book(title, author, pages, hasRead) {
   if (!new.target) {
@@ -29,28 +30,25 @@ function Book(title, author, pages, hasRead) {
 
 function addBookToLibrary(title, author, pages, hasRead) {
   const newBook = new Book(title, author, pages, hasRead);
+
   myLibrary.push(newBook);
+
+  bookDisplay(newBook);
 }
 
-const theHobbit = new Book(
-  "The Hobbit",
-  "J.R.R Tolkein",
-  "295",
-  "not read yet"
-);
+// addBookToLibrary(
+//   "Game of thrones",
+//   "George R.R. Martin",
+//   "784",
+//   "not read yet"
+// );
 
-addBookToLibrary(
-  "Game of thrones",
-  "George R.R. Martin",
-  "784",
-  "not read yet"
-);
-
-addBookToLibrary("The Hobbit", "J.R.R Tolkein", "295", "not read yet");
-
-function bookDisplay() {
+function bookDisplay(book) {
+  while (cardContainer.firstChild) {
+    cardContainer.removeChild(cardContainer.lastChild);
+  }
   myLibrary.forEach((book) => {
-    //Adds book elements to dom and adds appropriate styling
+    //   //Adds book elements to dom and adds appropriate styling
     const newCard = document.createElement("div");
     newCard.classList.add("card");
     newCard.dataset.id = book.ID;
@@ -68,13 +66,37 @@ function bookDisplay() {
     read.classList.add("read");
     read.textContent = book.hasRead;
 
-    //appends it to the correct location
+    //   //appends it to the correct location
     cardContainer.appendChild(newCard);
     newCard.appendChild(title);
     newCard.appendChild(author);
     newCard.appendChild(pageNum);
     newCard.appendChild(read);
   });
+
+  // const newCard = document.createElement("div");
+  // newCard.classList.add("card");
+  // newCard.dataset.id = book.ID;
+
+  // const title = document.createElement("h3");
+  // title.classList.add("title");
+  // title.textContent = book.title;
+  // const author = document.createElement("p");
+  // author.classList.add("author");
+  // author.textContent = book.author;
+  // const pageNum = document.createElement("p");
+  // pageNum.classList.add("pages");
+  // pageNum.textContent = book.pages;
+  // const read = document.createElement("p");
+  // read.classList.add("read");
+  // read.textContent = book.hasRead;
+
+  // //appends it to the correct location
+  // cardContainer.appendChild(newCard);
+  // newCard.appendChild(title);
+  // newCard.appendChild(author);
+  // newCard.appendChild(pageNum);
+  // newCard.appendChild(read);
 }
 
 btnAddBook.addEventListener("click", () => {
@@ -82,9 +104,35 @@ btnAddBook.addEventListener("click", () => {
 });
 
 btnAdd.addEventListener("click", (e) => {
-  //When click is selected, add form inputs and call addBookToLibrary function
-  let getTitle = document.
   e.preventDefault();
+  //When click is selected, add form inputs and call addBookToLibrary function
+  const titleInput = document.getElementById("titleInput");
+  const authorInput = document.getElementById("authorInput");
+  const pagesInput = document.getElementById("pagesInput");
+  const readStatus = document.getElementsByName("readStatus");
+
+  console.log("title input =" + titleInput.value);
+  console.log("author input =" + authorInput.value);
+  console.log("pages input =" + pagesInput.value);
+  console.log("read status =" + readStatus.value);
+
+  //trying to read what radio button is selected to
+  let readStatusContent = "";
+  readStatus.forEach(() => {
+    if (readStatus.checked) {
+      readStatusContent = readStatus.textContent;
+    }
+  });
+  addBookToLibrary(
+    titleInput.value,
+    authorInput.value,
+    pagesInput.value,
+    readStatusContent.value
+  );
+  // bookDisplay();
+  // bookDisplay();
+  //Prevents form submisson
+  // e.preventDefault();
 });
 
 //cancel button closes dialog window
@@ -93,17 +141,21 @@ btnCancel.addEventListener("click", (e) => {
   dialog.close();
 });
 
+// bookDisplay();
 // console.log(theHobbit.info());
 // console.log(theHobbit.ID);
 
 // console.log(myLibrary[0].ID);
 
 //trying to select the first one in library using the ID
-// let cardOne = document.querySelector(`[data-type = ${myLibrary[0].ID}`);
-// cardOne.classList.add("red");
+// console.log("*****");
+// console.log("my library 0 id = " + myLibrary[0].ID);
 
-console.log("------------------------");
-console.log(myLibrary[0]);
-console.log(myLibrary[0].info());
+// const firstCard = document.getElementById(myLibrary[0].ID);
+// console.log("Card one = " + firstCard);
+// firstCard.classList.add("red");
 
-bookDisplay();
+// console.log("------------------------");
+// console.log(myLibrary[0]);
+// console.log(myLibrary[0].info());
+// bookDisplay();
