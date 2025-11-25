@@ -32,7 +32,7 @@ function addBookToLibrary(title, author, pages, hasRead) {
   const newBook = new Book(title, author, pages, hasRead);
   //Adds new book to library
   myLibrary.push(newBook);
-  //calls funciton to display all books in library
+  //calls function to display all books in library
   bookDisplay(newBook);
 }
 
@@ -80,25 +80,35 @@ btnAdd.addEventListener("click", (e) => {
   const titleInput = document.getElementById("titleInput");
   const authorInput = document.getElementById("authorInput");
   const pagesInput = document.getElementById("pagesInput");
-  const readStatus = document.getElementsByName("readStatus");
+  // const readStatus = document.getElementsByName("readStatus");
+  const readRadio = document.getElementById("readRadio");
+  const unreadRadio = document.getElementById("unreadRadio");
 
   console.log("title input =" + titleInput.value);
   console.log("author input =" + authorInput.value);
   console.log("pages input =" + pagesInput.value);
-  console.log("read status =" + readStatus.value);
+  // console.log("read status =" + readStatus.value);
+  console.log("Read radio = " + readRadio);
+  console.log("Unread radio = " + unreadRadio);
 
   //trying to read what radio button is selected to
-  let readStatusContent = "";
-  readStatus.forEach(() => {
-    if (readStatus.checked) {
-      readStatusContent = readStatus.textContent;
-    }
-  });
+  // let readStatusContent = "";
+  // readStatus.forEach(() => {
+  //   if (readStatus.checked) {
+  //     readStatusContent = readStatus.textContent;
+  //   }
+  // });
+  if (readRadio.checked) {
+    readStatusContent = "has read";
+  } else if (unreadRadio.checked) {
+    readStatusContent = " has not read";
+  }
+
   addBookToLibrary(
     titleInput.value,
     authorInput.value,
     pagesInput.value,
-    readStatusContent.value
+    readStatusContent
   );
 
   //Clear the input fields on click
