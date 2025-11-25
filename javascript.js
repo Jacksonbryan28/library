@@ -101,8 +101,16 @@ btnAdd.addEventListener("click", (e) => {
     readStatusContent.value
   );
 
+  //Clear the input fields on click
+  titleInput.value = "";
+  authorInput.value = "";
+  pagesInput.value = "";
+
   //Prevents form submisson
   e.preventDefault();
+
+  //closes dialog
+  dialog.close();
 });
 
 //cancel button closes dialog window
