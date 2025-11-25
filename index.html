@@ -8,45 +8,42 @@
     <script defer src="javascript.js"></script>
   </head>
   <body>
-    <h1 class="test">Library</h1>
-    <div id="cardContainer" class="container">
-      <div id="blankdiv"></div>
+    <div class="wrapper">
+      <h1 class="test">Library</h1>
+      <div id="cardContainer" class="container">
+        <div id="blankdiv"></div>
+      </div>
+      <button id="addBook">Add book</button>
+      <dialog>
+        <form>
+          <!-- <p>* indicates required field</p> -->
+          <div class="inputField">
+            <label id="titleInputLabel" name="Title">* Title:</label>
+            <input type="text" name="Title" id="titleInput" required />
+          </div>
+          <div class="inputField">
+            <label id="authorInputLabel" name="Author">* Author:</label>
+            <input type="text" name="Author" id="authorInput" required />
+          </div>
+          <div class="inputField">
+            <label id="pagesInputLabel" name="pages">* Pages:</label>
+            <input type="number" name="pages" id="pagesInput" required />
+          </div>
+          <div class="inputField">
+            <fieldset>
+              <legend>* Read?</legend>
+              <input required type="radio" name="readStatus" id="readInput" />
+              <label for="readInput" id="readInputLabel">Unread</label>
+              <input type="radio" name="readStatus" id="unreadInput" />
+              <label for="unreadInput" id="unreadInputLabel">Read</label>
+            </fieldset>
+          </div>
+          <div class="btnGroup">
+            <button formmethod="dialog" id="btnCancel">Cancel</button>
+            <button type="submit" id="btnAdd">Add</button>
+          </div>
+        </form>
+      </dialog>
     </div>
-    <button id="addBook">Add book</button>
-    <dialog>
-      <form>
-        <!-- <p>* indicates required field</p> -->
-        <div class="inputField">
-          <label id="titleInputLabel" name="Title">* Title:</label>
-          <input type="text" name="Title" id="titleInput" required />
-        </div>
-
-        <div class="inputField">
-          <label id="authorInputLabel" name="Author">* Author:</label>
-          <input type="text" name="Author" id="authorInput" required />
-        </div>
-
-        <div class="inputField">
-          <label id="pagesInputLabel" name="pages">* Pages:</label>
-          <input type="number" name="pages" id="pagesInput" required />
-        </div>
-
-        <div class="inputField">
-          <fieldset>
-            <legend>* Read?</legend>
-            <input required type="radio" name="readStatus" id="readInput" />
-            <label for="readInput" id="readInputLabel">Unread</label>
-
-            <input type="radio" name="readStatus" id="unreadInput" />
-            <label for="unreadInput" id="unreadInputLabel">Read</label>
-          </fieldset>
-        </div>
-
-        <div class="btnGroup">
-          <button formmethod="dialog" id="btnCancel">Cancel</button>
-          <button type="submit" id="btnAdd">Add</button>
-        </div>
-      </form>
-    </dialog>
   </body>
 </html>
