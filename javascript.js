@@ -76,6 +76,7 @@ btnAddBook.addEventListener("click", () => {
 
 btnAdd.addEventListener("click", (e) => {
   e.preventDefault();
+
   //When click is selected, add form inputs and call addBookToLibrary function
   const titleInput = document.getElementById("titleInput");
   const authorInput = document.getElementById("authorInput");
@@ -112,15 +113,19 @@ btnAdd.addEventListener("click", (e) => {
   );
 
   //Clear the input fields on click
-  titleInput.value = "";
-  authorInput.value = "";
-  pagesInput.value = "";
+  titleInput.value = null;
+  authorInput.value = null;
+  pagesInput.value = null;
+  readRadio.checked = false;
+  unreadRadio.checked = false;
+  readStatusContent = null;
 
   //Prevents form submisson
-  e.preventDefault();
+  // document.e.preventDefault();
 
   //closes dialog
   dialog.close();
+  // document.e.preventDefault();
 });
 
 //cancel button closes dialog window
